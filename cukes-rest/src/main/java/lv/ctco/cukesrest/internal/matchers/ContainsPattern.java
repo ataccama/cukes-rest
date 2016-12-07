@@ -1,6 +1,6 @@
 package lv.ctco.cukesrest.internal.matchers;
 
-import lv.ctco.cukesrest.internal.helpers.*;
+import lv.ctco.cukescore.internal.helpers.*;
 import org.hamcrest.*;
 import org.hamcrest.Matcher;
 

@@ -2,7 +2,7 @@ package lv.ctco.cukesrest.internal;
 
 import com.jayway.restassured.response.*;
 import com.jayway.restassured.specification.*;
-import lv.ctco.cukesrest.*;
+import lv.ctco.cukescore.*;
 
 public enum HttpMethod {
     GET, POST, PUT, DELETE, OPTIONS, HEAD, PATCH;

@@ -1,8 +1,11 @@
 package lv.ctco.cukesrest.internal;
 
-import com.google.inject.*;
-import cucumber.api.guice.*;
-import cucumber.runtime.java.guice.*;
+import com.google.inject.Guice;
+import com.google.inject.Injector;
+import com.google.inject.Stage;
+import cucumber.api.guice.CucumberModules;
+import cucumber.runtime.java.guice.InjectorSource;
+import lv.ctco.cukescore.internal.GuiceModule;
 
 public class GuiceInjectorSource implements InjectorSource {
 
@@ -11,7 +14,7 @@ public class GuiceInjectorSource implements InjectorSource {
     @Override
     public synchronized Injector getInjector() {
         if (injector == null) {
-            injector = Guice.createInjector(Stage.PRODUCTION, CucumberModules.SCENARIO, new GuiceModule());
+            injector = Guice.createInjector(Stage.PRODUCTION, CucumberModules.SCENARIO, new CukesRestGuiceModule());
         }
         return injector;
     }

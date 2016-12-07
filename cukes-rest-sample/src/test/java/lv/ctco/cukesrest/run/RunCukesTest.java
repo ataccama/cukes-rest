@@ -1,16 +1,16 @@
-package lv.ctco.cukesrest.run;
+package lv.ctco.cukescore.run;
 
 import cucumber.api.*;
 import cucumber.api.junit.*;
-import lv.ctco.cukesrest.*;
+import lv.ctco.cukescore.*;
 import org.junit.*;
 import org.junit.runner.*;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-    format = {"pretty", "json:target/cucumber.json", "lv.ctco.cukesrest.formatter.CukesRestJsonFormatter:target/cucumber2.json"},
+    format = {"pretty", "json:target/cucumber.json", "lv.ctco.cukescore.formatter.CukesRestJsonFormatter:target/cucumber2.json"},
     features = "classpath:features",
-    glue = "lv.ctco.cukesrest.api",
+    glue = "lv.ctco.cukescore.api",
     strict = true
 )
 public class RunCukesTest {

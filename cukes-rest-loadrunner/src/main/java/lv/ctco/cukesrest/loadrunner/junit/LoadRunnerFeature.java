@@ -1,18 +1,21 @@
 package lv.ctco.cukesrest.loadrunner.junit;
 
-import com.jayway.restassured.*;
+import com.jayway.restassured.RestAssured;
 import com.jayway.restassured.filter.Filter;
 import cucumber.runtime.Runtime;
-import cucumber.runtime.junit.*;
-import cucumber.runtime.model.*;
-import lv.ctco.cukesrest.*;
-import lv.ctco.cukesrest.loadrunner.*;
-import org.junit.runner.notification.*;
-import org.junit.runners.model.*;
+import cucumber.runtime.junit.FeatureRunner;
+import cucumber.runtime.junit.JUnitReporter;
+import cucumber.runtime.model.CucumberFeature;
+import lv.ctco.cukescore.CukesRuntimeException;
+import lv.ctco.cukesrest.loadrunner.LoadRunnerFilter;
+import org.junit.runner.notification.RunNotifier;
+import org.junit.runners.model.InitializationError;
 
-import java.io.*;
-import java.util.*;
-import java.util.logging.*;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.logging.Logger;
 
 class LoadRunnerFeature extends FeatureRunner {
 

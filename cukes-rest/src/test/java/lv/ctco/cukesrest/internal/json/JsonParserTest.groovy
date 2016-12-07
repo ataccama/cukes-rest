@@ -1,11 +1,11 @@
 package lv.ctco.cukesrest.internal.json
 
+import lv.ctco.cukescore.internal.json.JsonParser
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.InjectMocks
 import org.mockito.runners.MockitoJUnitRunner
 
-import static lv.ctco.cukesrest.CustomMatchers.hasSize
 import static org.hamcrest.Matchers.allOf
 import static org.hamcrest.Matchers.hasEntry
 import static org.junit.Assert.assertThat

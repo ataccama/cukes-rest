@@ -1,13 +1,16 @@
 package lv.ctco.cukesrest.formatter;
 
-import cucumber.runtime.formatter.*;
-import gherkin.formatter.*;
-import gherkin.formatter.model.*;
-import lv.ctco.cukesrest.internal.*;
-import lv.ctco.cukesrest.internal.context.*;
+import cucumber.runtime.formatter.CucumberJSONFormatter;
+import gherkin.formatter.Argument;
+import gherkin.formatter.JSONFormatter;
+import gherkin.formatter.model.Match;
+import lv.ctco.cukescore.internal.context.ContextInflater;
+import lv.ctco.cukesrest.internal.GuiceInjectorSource;
 
-import java.lang.reflect.*;
-import java.util.*;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 public class CukesRestJsonFormatter extends CucumberJSONFormatter {
 

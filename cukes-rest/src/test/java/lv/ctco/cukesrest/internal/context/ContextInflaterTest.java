@@ -1,15 +1,20 @@
 package lv.ctco.cukesrest.internal.context;
 
-import com.google.common.base.*;
-import com.google.common.collect.*;
-import org.junit.*;
-import org.junit.runner.*;
-import org.mockito.*;
-import org.mockito.runners.*;
+import com.google.common.base.Optional;
+import com.google.common.collect.Sets;
+import lv.ctco.cukescore.internal.context.ContextInflater;
+import lv.ctco.cukescore.internal.context.GlobalWorldFacade;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
 
-import static org.hamcrest.Matchers.*;
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.*;
+import static org.hamcrest.Matchers.equalTo;
+import static org.junit.Assert.assertThat;
+import static org.mockito.Mockito.anyString;
+import static org.mockito.Mockito.doReturn;
 
 @RunWith(MockitoJUnitRunner.class)
 public class ContextInflaterTest {

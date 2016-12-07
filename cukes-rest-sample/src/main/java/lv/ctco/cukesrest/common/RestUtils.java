@@ -1,4 +1,4 @@
-package lv.ctco.cukesrest.common;
+package lv.ctco.cukescore.common;
 
 import com.google.inject.*;
 import com.yammer.dropwizard.config.*;

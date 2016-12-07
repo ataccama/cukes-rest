@@ -1,10 +1,10 @@
 package lv.ctco.cukesrest.loadrunner.dto;
 
-import lv.ctco.cukesrest.loadrunner.*;
-import org.junit.*;
+import lv.ctco.cukesrest.loadrunner.LoadRunnerTransaction;
+import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.*;
-import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.containsString;
+import static org.junit.Assert.assertThat;
 
 public class LoadRunnerTransactionTest {
 

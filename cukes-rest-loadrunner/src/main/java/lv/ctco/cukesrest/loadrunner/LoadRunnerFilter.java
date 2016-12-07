@@ -1,19 +1,23 @@
 package lv.ctco.cukesrest.loadrunner;
 
-import com.google.common.base.*;
-import com.google.inject.*;
-import com.jayway.restassured.filter.*;
-import com.jayway.restassured.response.*;
-import com.jayway.restassured.specification.*;
-import cucumber.api.*;
-import cucumber.api.java.*;
-import lv.ctco.cukesrest.*;
-import lv.ctco.cukesrest.internal.context.*;
-import lv.ctco.cukesrest.loadrunner.function.*;
-import lv.ctco.cukesrest.loadrunner.mapper.*;
-import org.mockito.*;
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
+import com.jayway.restassured.filter.Filter;
+import com.jayway.restassured.filter.FilterContext;
+import com.jayway.restassured.response.Response;
+import com.jayway.restassured.specification.FilterableRequestSpecification;
+import com.jayway.restassured.specification.FilterableResponseSpecification;
+import cucumber.api.Scenario;
+import cucumber.api.java.Before;
+import lv.ctco.cukescore.CukesOptions;
+import lv.ctco.cukescore.CukesRuntimeException;
+import lv.ctco.cukescore.internal.context.GlobalWorldFacade;
+import lv.ctco.cukesrest.loadrunner.function.WebCustomRequest;
+import lv.ctco.cukesrest.loadrunner.mapper.WebCustomRequestMapper;
+import org.mockito.Mockito;
 
-import java.io.*;
+import java.io.IOException;
+import java.io.OutputStream;
 
 @Singleton
 public class LoadRunnerFilter implements Filter {

@@ -1,6 +1,6 @@
 package lv.ctco.cukesrest.loadrunner.function;
 
-import lv.ctco.cukesrest.internal.helpers.*;
+import lv.ctco.cukescore.internal.helpers.*;
 
 import java.util.*;
 

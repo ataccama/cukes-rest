@@ -1,12 +1,18 @@
+/*
+ * Copyright Swiss Reinsurance Company, Mythenquai 50/60, CH 8022 Zurich. All rights reserved.
+ */
+
 package lv.ctco.cukesrest.internal.switches;
 
-import com.google.common.base.Optional;
-import com.google.inject.*;
-import lv.ctco.cukesrest.internal.context.*;
-import org.aopalliance.intercept.*;
+import com.google.inject.Inject;
+import lv.ctco.cukescore.internal.context.GlobalWorldFacade;
+import org.aopalliance.intercept.MethodInterceptor;
+import org.aopalliance.intercept.MethodInvocation;
 
-import java.lang.annotation.*;
-import java.util.*;
+import java.lang.annotation.Annotation;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class SwitchedByInterceptor implements MethodInterceptor {
 

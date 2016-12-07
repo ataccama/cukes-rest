@@ -1,11 +1,11 @@
-package lv.ctco.cukesrest.common;
+package lv.ctco.cukescore.common;
 
 import com.google.inject.*;
-import lv.ctco.cukesrest.gadgets.dto.*;
+import lv.ctco.cukescore.gadgets.dto.*;
 
 import java.util.*;
 
-import static lv.ctco.cukesrest.gadgets.dto.GadgetType.*;
+import static lv.ctco.cukescore.gadgets.dto.GadgetType.*;
 
 @Singleton
 public class InMemoryStorage {

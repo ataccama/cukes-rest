@@ -1,9 +1,10 @@
 package lv.ctco.cukesrest.api;
 
-import com.google.inject.*;
-import cucumber.api.java.en.*;
-import lv.ctco.cukesrest.internal.*;
-import lv.ctco.cukesrest.internal.helpers.*;
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
+import cucumber.api.java.en.Given;
+import lv.ctco.cukescore.internal.helpers.Time;
+import lv.ctco.cukesrest.internal.RequestSpecificationFacade;
 
 @Singleton
 public class AwaitSteps {

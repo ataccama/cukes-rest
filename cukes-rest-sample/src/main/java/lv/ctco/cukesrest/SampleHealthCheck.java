@@ -1,4 +1,4 @@
-package lv.ctco.cukesrest;
+package lv.ctco.cukescore;
 
 import com.yammer.metrics.core.*;
 

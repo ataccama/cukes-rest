@@ -1,10 +1,10 @@
-package lv.ctco.cukesrest;
+package lv.ctco.cukescore;
 
 import com.google.inject.*;
 import com.yammer.dropwizard.*;
 import com.yammer.dropwizard.config.*;
-import lv.ctco.cukesrest.gadgets.*;
-import lv.ctco.cukesrest.healthcheck.*;
+import lv.ctco.cukescore.gadgets.*;
+import lv.ctco.cukescore.healthcheck.*;
 
 public class SampleApplication extends Service<SampleConfiguration> {
     public static void main(String[] args) throws Exception {

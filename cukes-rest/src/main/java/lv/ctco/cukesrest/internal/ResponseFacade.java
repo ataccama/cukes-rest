@@ -1,17 +1,23 @@
 package lv.ctco.cukesrest.internal;
 
 import com.google.common.base.Optional;
-import com.google.inject.*;
-import com.jayway.restassured.response.*;
-import lv.ctco.cukesrest.*;
-import lv.ctco.cukesrest.internal.context.*;
-import lv.ctco.cukesrest.internal.matchers.*;
-import lv.ctco.cukesrest.internal.switches.*;
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
+import com.jayway.restassured.response.Header;
+import com.jayway.restassured.response.Headers;
+import com.jayway.restassured.response.Response;
+import lv.ctco.cukescore.CukesCorePlugin;
+import lv.ctco.cukescore.CukesOptions;
+import lv.ctco.cukescore.internal.context.GlobalWorldFacade;
+import lv.ctco.cukescore.internal.context.InflateContext;
+import lv.ctco.cukesrest.internal.matchers.AwaitConditionMatcher;
+import lv.ctco.cukesrest.internal.switches.ResponseWrapper;
 
-import java.util.*;
-import java.util.concurrent.*;
+import java.util.Set;
+import java.util.concurrent.Callable;
+import java.util.concurrent.TimeUnit;
 
-import static com.jayway.awaitility.Awaitility.*;
+import static com.jayway.awaitility.Awaitility.with;
 
 @Singleton
 @InflateContext
@@ -22,7 +28,7 @@ public class ResponseFacade {
     @Inject
     GlobalWorldFacade world;
     @Inject
-    Set<CukesRestPlugin> pluginSet;
+    Set<CukesCorePlugin> pluginSet;
 
     private Response response;
     private boolean expectException;
@@ -31,7 +37,7 @@ public class ResponseFacade {
     public void doRequest(String httpMethod, final String url) throws Exception {
         final HttpMethod method = HttpMethod.parse(httpMethod);
 
-        // TODO: Should be refactored into CukesRestPlugin
+        // TODO: Should be refactored into CukesCorePlugin
         boolean filterEnabled = world.getBoolean(CukesOptions.LOADRUNNER_FILTER_BLOCKS_REQUESTS);
         AwaitCondition awaitCondition = specification.awaitCondition();
         try {
@@ -73,12 +79,12 @@ public class ResponseFacade {
             @Override
             public ResponseWrapper call() throws Exception {
                 authenticate();
-                for (CukesRestPlugin cukesRestPlugin : pluginSet) {
-                    cukesRestPlugin.beforeRequest();
+                for (CukesCorePlugin CukesCorePlugin : pluginSet) {
+                    CukesCorePlugin.beforeRequest();
                 }
                 response = method.doRequest(specification.value(), url);
-                for (CukesRestPlugin cukesRestPlugin : pluginSet) {
-                    cukesRestPlugin.afterRequest();
+                for (CukesCorePlugin CukesCorePlugin : pluginSet) {
+                    CukesCorePlugin.afterRequest();
                 }
                 if (!filterEnabled) {
                     cacheHeaders(response);

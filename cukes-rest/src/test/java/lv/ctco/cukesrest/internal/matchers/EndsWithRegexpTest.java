@@ -34,7 +34,7 @@ public class EndsWithRegexpTest {
 
     @Test
     public void matchesLocationUrl() throws Exception {
-        assertThat("http://web-dev.swissre.com:80/webapp/orx/rest/index/types/CLIENT/nodes/6f1155df-644b-4228-89af" +
+        assertThat("http://mysite.com:80/index/types/CLIENT/nodes/6f1155df-644b-4228-89af" +
                 "-7d24b8fe1a8d", EndsWithRegexp.endsWithRegexp("/index/types/CLIENT/nodes/.+"));
     }
 }

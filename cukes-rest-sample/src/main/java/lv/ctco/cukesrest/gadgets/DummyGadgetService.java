@@ -1,7 +1,7 @@
-package lv.ctco.cukesrest.gadgets;
+package lv.ctco.cukescore.gadgets;
 
-import lv.ctco.cukesrest.common.*;
-import lv.ctco.cukesrest.gadgets.dto.*;
+import lv.ctco.cukescore.common.*;
+import lv.ctco.cukescore.gadgets.dto.*;
 
 import javax.inject.*;
 import java.util.*;

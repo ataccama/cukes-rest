@@ -4,9 +4,9 @@ import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import com.jayway.restassured.http.ContentType;
 import cucumber.api.java.en.Given;
-import lv.ctco.cukesrest.CukesOptions;
+import lv.ctco.cukescore.CukesOptions;
+import lv.ctco.cukescore.internal.context.GlobalWorldFacade;
 import lv.ctco.cukesrest.internal.RequestSpecificationFacade;
-import lv.ctco.cukesrest.internal.context.GlobalWorldFacade;
 import lv.ctco.cukesrest.internal.resources.ResourceFileReader;
 
 import java.io.File;

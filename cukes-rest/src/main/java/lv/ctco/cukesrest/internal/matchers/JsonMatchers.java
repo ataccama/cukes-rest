@@ -4,7 +4,7 @@ import com.jayway.restassured.internal.*;
 import com.jayway.restassured.path.xml.*;
 import com.jayway.restassured.path.xml.config.*;
 import com.jayway.restassured.response.*;
-import lv.ctco.cukesrest.internal.helpers.*;
+import lv.ctco.cukescore.internal.helpers.*;
 import org.hamcrest.*;
 
 import java.util.*;

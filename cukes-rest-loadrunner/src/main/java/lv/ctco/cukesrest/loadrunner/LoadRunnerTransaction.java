@@ -1,9 +1,10 @@
 package lv.ctco.cukesrest.loadrunner;
 
-import lv.ctco.cukesrest.loadrunner.function.*;
-import org.apache.commons.lang3.*;
+import lv.ctco.cukesrest.loadrunner.function.LoadRunnerFunction;
+import org.apache.commons.lang3.StringUtils;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class LoadRunnerTransaction {
 

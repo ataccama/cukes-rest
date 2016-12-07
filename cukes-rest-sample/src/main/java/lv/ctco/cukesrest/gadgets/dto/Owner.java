@@ -1,4 +1,4 @@
-package lv.ctco.cukesrest.gadgets.dto;
+package lv.ctco.cukescore.gadgets.dto;
 
 public class Owner {
     private String name;
