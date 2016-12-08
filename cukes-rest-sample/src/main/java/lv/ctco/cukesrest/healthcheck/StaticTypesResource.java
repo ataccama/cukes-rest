@@ -1,4 +1,4 @@
-package lv.ctco.cukescore.healthcheck;
+package lv.ctco.cukesrest.healthcheck;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;

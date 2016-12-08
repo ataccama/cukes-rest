@@ -1,6 +1,6 @@
-package lv.ctco.cukescore.gadgets.dto;
+package lv.ctco.cukesrest.gadgets.dto;
 
-import java.util.*;
+import java.util.Collection;
 
 public class GadgetData {
 

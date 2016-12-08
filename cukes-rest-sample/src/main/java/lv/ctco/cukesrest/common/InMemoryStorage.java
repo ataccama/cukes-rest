@@ -1,11 +1,19 @@
-package lv.ctco.cukescore.common;
+package lv.ctco.cukesrest.common;
 
-import com.google.inject.*;
-import lv.ctco.cukescore.gadgets.dto.*;
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
+import lv.ctco.cukesrest.gadgets.dto.GadgetDto;
+import lv.ctco.cukesrest.gadgets.dto.GadgetType;
+import lv.ctco.cukesrest.gadgets.dto.Owner;
 
-import java.util.*;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
-import static lv.ctco.cukescore.gadgets.dto.GadgetType.*;
+import static lv.ctco.cukesrest.gadgets.dto.GadgetType.LAPTOP;
+import static lv.ctco.cukesrest.gadgets.dto.GadgetType.SMARTPHONE;
+import static lv.ctco.cukesrest.gadgets.dto.GadgetType.SMART_WATCH;
+import static lv.ctco.cukesrest.gadgets.dto.GadgetType.TABLET;
 
 @Singleton
 public class InMemoryStorage {

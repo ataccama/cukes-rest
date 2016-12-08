@@ -1,4 +1,4 @@
-package lv.ctco.cukescore;
+package lv.ctco.cukesrest;
 
 import com.yammer.dropwizard.config.*;
 

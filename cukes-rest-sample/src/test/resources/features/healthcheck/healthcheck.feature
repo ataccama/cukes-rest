@@ -19,7 +19,7 @@ Feature: Server is healthy
     Then status code is 200
     And let variable "{(isolated)}" equal to "not_isolated"
 
-  Scenario: Float values should be compared correctly
+  Scenario: Float values should be compared correctly
     Given baseUri is "http://localhost:8080/"
     When the client performs GET request on "/staticTypes"
     Then status code is 200
