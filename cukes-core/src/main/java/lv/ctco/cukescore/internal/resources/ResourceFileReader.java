@@ -1,10 +1,9 @@
-package lv.ctco.cukesrest.internal.resources;
+package lv.ctco.cukescore.internal.resources;
 
 import com.google.common.base.Joiner;
 import com.google.inject.Inject;
 import lv.ctco.cukescore.CukesRuntimeException;
 import lv.ctco.cukescore.internal.helpers.Files;
-import lv.ctco.cukescore.internal.resources.FilePathService;
 
 import java.io.File;
 import java.io.IOException;
