@@ -1,10 +1,11 @@
-package lv.ctco.cukesrest.internal.matchers;
+package lv.ctco.cukescore.internal.matchers;
 
-import lv.ctco.cukescore.internal.helpers.*;
-import org.hamcrest.*;
+import lv.ctco.cukescore.internal.helpers.Strings;
+import org.hamcrest.BaseMatcher;
+import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 
-import java.util.regex.*;
+import java.util.regex.Pattern;
 
 public class ContainsPattern extends BaseMatcher<CharSequence> {
 

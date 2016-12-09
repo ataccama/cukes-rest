@@ -1,11 +1,11 @@
-package lv.ctco.cukesrest.internal.matchers;
+package lv.ctco.cukescore.internal.matchers;
 
-import lv.ctco.cukesrest.internal.switches.ResponseWrapper;
+import lv.ctco.cukescore.internal.switches.ResponseWrapper;
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
 
-import static lv.ctco.cukesrest.internal.matchers.JsonMatchers.containsValueByPath;
+import static lv.ctco.cukescore.internal.matchers.JsonMatchers.containsValueByPath;
 
 
 public class ResponseMatcher {

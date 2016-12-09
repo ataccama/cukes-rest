@@ -1,7 +1,7 @@
-package lv.ctco.cukesrest.internal;
+package lv.ctco.cukescore.internal;
 
 import lv.ctco.cukescore.internal.helpers.Time;
-import lv.ctco.cukesrest.internal.switches.ResponseWrapper;
+import lv.ctco.cukescore.internal.switches.ResponseWrapper;
 import org.hamcrest.Matcher;
 
 public class AwaitCondition {

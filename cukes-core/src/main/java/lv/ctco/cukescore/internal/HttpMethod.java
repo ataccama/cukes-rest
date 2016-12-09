@@ -1,8 +1,8 @@
-package lv.ctco.cukesrest.internal;
+package lv.ctco.cukescore.internal;
 
-import com.jayway.restassured.response.*;
-import com.jayway.restassured.specification.*;
-import lv.ctco.cukescore.*;
+import com.jayway.restassured.response.Response;
+import com.jayway.restassured.specification.RequestSpecification;
+import lv.ctco.cukescore.CukesRuntimeException;
 
 public enum HttpMethod {
     GET, POST, PUT, DELETE, OPTIONS, HEAD, PATCH;

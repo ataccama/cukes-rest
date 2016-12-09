@@ -1,9 +1,10 @@
-package lv.ctco.cukesrest.internal.matchers;
+package lv.ctco.cukescore.internal.matchers;
 
-import org.hamcrest.*;
+import org.hamcrest.BaseMatcher;
+import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 
-import java.util.regex.*;
+import java.util.regex.Pattern;
 
 public class EndsWithRegexp {
 

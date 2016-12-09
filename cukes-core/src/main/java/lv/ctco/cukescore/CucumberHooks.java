@@ -1,10 +1,9 @@
-package lv.ctco.cukesrest;
+package lv.ctco.cukescore;
 
 import com.google.inject.Inject;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
-import lv.ctco.cukescore.CukesOptions;
-import lv.ctco.cukesrest.internal.CukesRestFacade;
+import lv.ctco.cukescore.internal.CukesRestFacade;
 
 public class CucumberHooks {
 

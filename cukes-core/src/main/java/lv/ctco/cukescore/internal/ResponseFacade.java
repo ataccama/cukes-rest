@@ -1,4 +1,4 @@
-package lv.ctco.cukesrest.internal;
+package lv.ctco.cukescore.internal;
 
 import com.google.common.base.Optional;
 import com.google.inject.Inject;
@@ -10,8 +10,8 @@ import lv.ctco.cukescore.CukesCorePlugin;
 import lv.ctco.cukescore.CukesOptions;
 import lv.ctco.cukescore.internal.context.GlobalWorldFacade;
 import lv.ctco.cukescore.internal.context.InflateContext;
-import lv.ctco.cukesrest.internal.matchers.AwaitConditionMatcher;
-import lv.ctco.cukesrest.internal.switches.ResponseWrapper;
+import lv.ctco.cukescore.internal.matchers.AwaitConditionMatcher;
+import lv.ctco.cukescore.internal.switches.ResponseWrapper;
 
 import java.util.Set;
 import java.util.concurrent.Callable;

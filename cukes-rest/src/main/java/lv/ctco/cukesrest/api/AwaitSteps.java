@@ -3,8 +3,8 @@ package lv.ctco.cukesrest.api;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import cucumber.api.java.en.Given;
+import lv.ctco.cukescore.internal.RequestSpecificationFacade;
 import lv.ctco.cukescore.internal.helpers.Time;
-import lv.ctco.cukesrest.internal.RequestSpecificationFacade;
 
 @Singleton
 public class AwaitSteps {

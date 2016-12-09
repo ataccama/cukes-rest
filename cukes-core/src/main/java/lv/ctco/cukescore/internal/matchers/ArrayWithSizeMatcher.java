@@ -1,13 +1,21 @@
-package lv.ctco.cukesrest.internal.matchers;
+package lv.ctco.cukescore.internal.matchers;
 
-import com.jayway.restassured.internal.path.xml.*;
-import com.jayway.restassured.path.xml.element.*;
-import org.hamcrest.*;
+import com.jayway.restassured.internal.path.xml.NodeChildrenImpl;
+import com.jayway.restassured.path.xml.element.Node;
+import org.hamcrest.BaseMatcher;
+import org.hamcrest.Description;
+import org.hamcrest.Matcher;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
-import static java.lang.Integer.*;
-import static org.hamcrest.Matchers.*;
+import static java.lang.Integer.valueOf;
+import static org.hamcrest.Matchers.greaterThan;
+import static org.hamcrest.Matchers.greaterThanOrEqualTo;
+import static org.hamcrest.Matchers.hasSize;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.lessThan;
+import static org.hamcrest.Matchers.lessThanOrEqualTo;
 
 public class ArrayWithSizeMatcher {
     public static Matcher<List<?>> arrayWithSize(final String size) {

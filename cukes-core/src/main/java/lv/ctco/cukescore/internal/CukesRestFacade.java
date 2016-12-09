@@ -2,7 +2,7 @@
  * Copyright Swiss Reinsurance Company, Mythenquai 50/60, CH 8022 Zurich. All rights reserved.
  */
 
-package lv.ctco.cukesrest.internal;
+package lv.ctco.cukescore.internal;
 
 import com.google.inject.Inject;
 import com.google.inject.Singleton;

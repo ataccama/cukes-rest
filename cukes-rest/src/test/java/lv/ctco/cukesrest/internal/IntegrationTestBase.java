@@ -1,6 +1,6 @@
 package lv.ctco.cukesrest.internal;
 
-import com.google.inject.*;
+import com.google.inject.Injector;
 
 public class IntegrationTestBase {
 

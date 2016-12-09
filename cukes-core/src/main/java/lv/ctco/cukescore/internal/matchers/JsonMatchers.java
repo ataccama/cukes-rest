@@ -1,15 +1,17 @@
-package lv.ctco.cukesrest.internal.matchers;
+package lv.ctco.cukescore.internal.matchers;
 
-import com.jayway.restassured.internal.*;
-import com.jayway.restassured.path.xml.*;
-import com.jayway.restassured.path.xml.config.*;
-import com.jayway.restassured.response.*;
-import lv.ctco.cukescore.internal.helpers.*;
-import org.hamcrest.*;
+import com.jayway.restassured.internal.RestAssuredResponseOptionsImpl;
+import com.jayway.restassured.path.xml.XmlPath;
+import com.jayway.restassured.path.xml.config.XmlPathConfig;
+import com.jayway.restassured.response.ResponseBodyExtractionOptions;
+import lv.ctco.cukescore.internal.helpers.Strings;
+import org.hamcrest.BaseMatcher;
+import org.hamcrest.Description;
+import org.hamcrest.Matcher;
 
-import java.util.*;
+import java.util.List;
 
-import static org.apache.commons.lang3.StringUtils.*;
+import static org.apache.commons.lang3.StringUtils.containsIgnoreCase;
 
 public class JsonMatchers {
 

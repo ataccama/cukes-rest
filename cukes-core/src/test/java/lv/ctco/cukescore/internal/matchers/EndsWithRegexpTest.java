@@ -1,9 +1,9 @@
-package lv.ctco.cukesrest.internal.matchers;
+package lv.ctco.cukescore.internal.matchers;
 
-import org.hamcrest.*;
-import org.junit.*;
+import org.hamcrest.Matchers;
+import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 public class EndsWithRegexpTest {
 

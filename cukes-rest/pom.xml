@@ -11,11 +11,6 @@
         <version>0.2.18-SNAPSHOT</version>
     </parent>
 
-    <properties>
-        <awaitility.version>1.6.4</awaitility.version>
-        <rest-assured.version>2.8.0</rest-assured.version>
-    </properties>
-
     <build>
         <plugins>
             <plugin>
@@ -37,21 +32,6 @@
             <artifactId>cukes-core</artifactId>
             <version>${project.version}</version>
         </dependency>
-
-        <!-- RestAssured -->
-        <dependency>
-            <groupId>com.jayway.restassured</groupId>
-            <artifactId>rest-assured</artifactId>
-            <version>${rest-assured.version}</version>
-        </dependency>
-
-        <!-- Awaitility -->
-        <dependency>
-            <groupId>com.jayway.awaitility</groupId>
-            <artifactId>awaitility</artifactId>
-            <version>${awaitility.version}</version>
-        </dependency>
-
     </dependencies>
 
 </project>

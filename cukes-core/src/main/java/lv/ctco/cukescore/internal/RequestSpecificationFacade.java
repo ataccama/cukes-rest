@@ -1,4 +1,4 @@
-package lv.ctco.cukesrest.internal;
+package lv.ctco.cukescore.internal;
 
 import com.google.common.base.Optional;
 import com.google.inject.Inject;
@@ -21,9 +21,9 @@ import java.net.URLEncoder;
 
 import static com.jayway.restassured.config.JsonConfig.jsonConfig;
 import static com.jayway.restassured.config.RestAssuredConfig.newConfig;
-import static lv.ctco.cukesrest.internal.matchers.ResponseMatcher.aHeader;
-import static lv.ctco.cukesrest.internal.matchers.ResponseMatcher.aProperty;
-import static lv.ctco.cukesrest.internal.matchers.ResponseMatcher.aStatusCode;
+import static lv.ctco.cukescore.internal.matchers.ResponseMatcher.aHeader;
+import static lv.ctco.cukescore.internal.matchers.ResponseMatcher.aProperty;
+import static lv.ctco.cukescore.internal.matchers.ResponseMatcher.aStatusCode;
 import static org.hamcrest.Matchers.equalTo;
 
 @Singleton

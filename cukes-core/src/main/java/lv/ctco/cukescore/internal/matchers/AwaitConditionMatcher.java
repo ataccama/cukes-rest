@@ -1,8 +1,8 @@
-package lv.ctco.cukesrest.internal.matchers;
+package lv.ctco.cukescore.internal.matchers;
 
 import cucumber.runtime.CucumberException;
-import lv.ctco.cukesrest.internal.AwaitCondition;
-import lv.ctco.cukesrest.internal.switches.ResponseWrapper;
+import lv.ctco.cukescore.internal.AwaitCondition;
+import lv.ctco.cukescore.internal.switches.ResponseWrapper;
 import org.hamcrest.Description;
 import org.hamcrest.TypeSafeMatcher;
 
