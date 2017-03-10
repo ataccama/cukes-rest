@@ -7,6 +7,7 @@ import cucumber.api.java.en.Given;
 import lv.ctco.cukesrest.CukesOptions;
 import lv.ctco.cukesrest.internal.RequestSpecificationFacade;
 import lv.ctco.cukesrest.internal.context.GlobalWorldFacade;
+import lv.ctco.cukesrest.internal.resources.FilePathService;
 import lv.ctco.cukesrest.internal.resources.ResourceFileReader;
 
 import java.io.File;
@@ -19,6 +20,9 @@ public class GivenSteps {
 
     @Inject
     GlobalWorldFacade world;
+
+    @Inject
+    FilePathService filePathService;
 
     @Inject
     ResourceFileReader reader;
@@ -100,7 +104,7 @@ public class GivenSteps {
 
     @Given("^request body is a multipart file \"(.+)\"$")
     public void request_Body_Is_A_Multipart_File(String path) {
-        this.facade.multiPart(new File(path));
+        facade.multiPart(new File(filePathService.normalize(path)));
     }
 
     @Given("^session ID is \"(.+)\"$")
