@@ -21,6 +21,11 @@ public class ThenSteps {
         this.assertionFacade.varAssignedFromHeader(varName, headerName);
     }
 
+    @Then("^let variable \"(.+)\" equal to cookie \"(.+)\" value$")
+    public void var_assigned_fromCookie(String varName, String cookieValueName) {
+        this.assertionFacade.varAssignedFromCookie(varName, cookieValueName);
+    }
+
     @Then("^let variable \"(.+)\" equal to property \"(.+)\" value$")
     public void var_assigned_fromProperty(String varName, String property) {
         this.assertionFacade.varAssignedFromProperty(varName, property);

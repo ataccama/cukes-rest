@@ -25,6 +25,8 @@ public interface AssertionFacade {
 
     void varAssignedFromHeader(String varName, String headerName);
 
+    void varAssignedFromCookie(String varName, String cookieValueName);
+
     void headerEqualTo(String headerName, String value);
 
     void headerNotEqualTo(String headerName, String value);

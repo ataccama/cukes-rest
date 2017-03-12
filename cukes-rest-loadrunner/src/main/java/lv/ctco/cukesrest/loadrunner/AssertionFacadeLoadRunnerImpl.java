@@ -77,6 +77,11 @@ public class AssertionFacadeLoadRunnerImpl implements AssertionFacade {
     }
 
     @Override
+    public void varAssignedFromCookie(String varName, String cookieValueName) {
+
+    }
+
+    @Override
     public void headerEqualTo(String headerName, String value) {
 
     }

@@ -1,5 +1,7 @@
 package lv.ctco.cukesrest.internal;
 
+import java.util.Map;
+
 import com.google.common.base.Optional;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
@@ -19,8 +21,6 @@ import lv.ctco.cukesrest.internal.matchers.OfTypeMatcher;
 import lv.ctco.cukesrest.internal.switches.SwitchedBy;
 import org.hamcrest.Matchers;
 
-import java.util.Map;
-
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
@@ -36,13 +36,11 @@ import static org.junit.Assert.assertThat;
 public class AssertionFacadeImpl implements AssertionFacade {
 
     @Inject
+    ResponseFacade facade;
+    @Inject
     private GlobalWorldFacade world;
-
     @Inject
     private JsonParser jsonParser;
-
-    @Inject
-    ResponseFacade facade;
 
     @Override
     public void bodyEqualTo(String body) {
@@ -131,6 +129,18 @@ public class AssertionFacadeImpl implements AssertionFacade {
     }
 
     @Override
+    public void varAssignedFromCookie(String varName, String cookieValueName) {
+        String cookieValue = this.facade.response().getCookie(cookieValueName); // getCookie() method returns cokie like this: ""value""
+        if (cookieValue.startsWith("\"")) {
+            cookieValue = cookieValue.substring(1);
+        }
+        if (cookieValue.endsWith("\"")) {
+            cookieValue = cookieValue.substring(0, cookieValue.length() - 1);
+        }
+        this.world.put(varName, cookieValue);
+    }
+
+    @Override
     public void headerEqualTo(String headerName, String value) {
         this.facade.response().then().header(headerName, equalTo(value));
     }
@@ -164,7 +174,7 @@ public class AssertionFacadeImpl implements AssertionFacade {
     public void bodyContainsPathWithValue(String path, String value) {
         ResponseBody responseBody = this.facade.response().body();
         assertThat(responseBody,
-                JsonMatchers.containsValueByPath(path, EqualToIgnoringTypeMatcher.equalToIgnoringType(value, this.world.getBoolean("case-insensitive"))));
+            JsonMatchers.containsValueByPath(path, EqualToIgnoringTypeMatcher.equalToIgnoringType(value, this.world.getBoolean("case-insensitive"))));
     }
 
     @Override
@@ -183,6 +193,14 @@ public class AssertionFacadeImpl implements AssertionFacade {
     public void bodyContainsArrayWithSize(String path, String size) {
         ResponseBody responseBody = this.facade.response().body();
         assertThat(responseBody, JsonMatchers.containsValueByPath(path, ArrayWithSizeMatcher.arrayWithSize(size)));
+    }
+
+    @Override
+    public void bodyContainsArrayWithEntryHavingValue(String path, String value) {
+        ResponseBody responseBody = this.facade.response().body();
+        assertThat(responseBody, JsonMatchers.containsValueByPathInArray(path,
+            EqualToIgnoringTypeMatcher.equalToIgnoringType(value, this.world.getBoolean("case-insensitive"))));
+
     }
 
     @Override
@@ -229,13 +247,5 @@ public class AssertionFacadeImpl implements AssertionFacade {
     @Override
     public void failureIsExpected() {
         this.facade.setExpectException(true);
-    }
-
-    @Override
-    public void bodyContainsArrayWithEntryHavingValue(String path, String value) {
-        ResponseBody responseBody = this.facade.response().body();
-        assertThat(responseBody, JsonMatchers.containsValueByPathInArray(path,
-                EqualToIgnoringTypeMatcher.equalToIgnoringType(value, this.world.getBoolean("case-insensitive"))));
-
     }
 }
