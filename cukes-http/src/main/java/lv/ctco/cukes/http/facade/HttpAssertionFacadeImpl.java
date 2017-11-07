@@ -1,5 +1,7 @@
 package lv.ctco.cukes.http.facade;
 
+import java.util.Map;
+
 import com.google.common.base.Function;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
@@ -7,18 +9,28 @@ import io.restassured.response.Response;
 import lv.ctco.cukes.core.CukesOptions;
 import lv.ctco.cukes.core.internal.context.GlobalWorldFacade;
 import lv.ctco.cukes.core.internal.context.InflateContext;
-import lv.ctco.cukes.core.internal.matchers.*;
+import lv.ctco.cukes.core.internal.matchers.ArrayWithSizeMatcher;
+import lv.ctco.cukes.core.internal.matchers.ContainsPattern;
+import lv.ctco.cukes.core.internal.matchers.EndsWithRegexp;
+import lv.ctco.cukes.core.internal.matchers.EqualToIgnoringTypeMatcher;
+import lv.ctco.cukes.core.internal.matchers.JsonMatchers;
+import lv.ctco.cukes.core.internal.matchers.MiscMatchers;
+import lv.ctco.cukes.core.internal.matchers.OfTypeMatcher;
 import lv.ctco.cukes.core.internal.switches.SwitchedBy;
 import lv.ctco.cukes.http.json.JsonParser;
 import lv.ctco.cukes.http.matchers.StatusCodeMatcher;
 import org.apache.commons.lang3.StringUtils;
 import org.hamcrest.Matchers;
 
-import java.util.Map;
-
 import static lv.ctco.cukes.core.internal.matchers.EqualToIgnoringTypeMatcher.equalToIgnoringType;
 import static lv.ctco.cukes.core.internal.matchers.JsonMatchers.containsPropertyValueByPathInArray;
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.containsString;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.isEmptyOrNullString;
+import static org.hamcrest.Matchers.isEmptyString;
+import static org.hamcrest.Matchers.not;
+import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
 
 @Singleton
@@ -105,6 +117,12 @@ public class HttpAssertionFacadeImpl implements HttpAssertionFacade {
     @Override
     public void varAssignedFromHeader(@InflateContext.Ignore String varName, String headerName) {
         String value = this.facade.response().getHeader(headerName);
+        this.world.put(varName, value);
+    }
+
+    @Override
+    public void varAssignedFromCookie(String varName, String cookieValueName) {
+        String value = this.facade.response().getCookie(cookieValueName);
         this.world.put(varName, value);
     }
 
