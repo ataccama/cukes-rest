@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>cukes</artifactId>
+        <groupId>lv.ctco.cukes</groupId>
+        <version>0.0.18-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>cukes-documentation-generator</artifactId>
+    <name>Cukes Markdown-style Documentation Generator</name>
+
+    <dependencies>
+        <dependency>
+            <groupId>lv.ctco.cukes</groupId>
+            <artifactId>cukes-core</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>lv.ctco.cukes</groupId>
+            <artifactId>cukes-http</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>lv.ctco.cukes</groupId>
+            <artifactId>cukes-graphql</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>lv.ctco.cukes</groupId>
+            <artifactId>cukes-ldap</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>lv.ctco.cukes</groupId>
+            <artifactId>cukes-rabbitmq</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>lv.ctco.cukes</groupId>
+            <artifactId>cukes-rest</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.6.0</version>
+                <executions>
+                    <execution>
+                        <id>create-docs</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>java</goal>
+                        </goals>
+                        <configuration>
+                            <mainClass>lv.ctco.cukes.docgen.DocumentationGenerator</mainClass>
+                            <systemProperties>
+                                <systemProperty>
+                                    <key>targetDir</key>
+                                    <value>${project.basedir}/../docs/</value>
+                                </systemProperty>
+                                <systemProperty>
+                                    <key>version</key>
+                                    <value>${project.version}</value>
+                                </systemProperty>
+                            </systemProperties>
+                        </configuration>
+                    </execution>
+                </executions>
+                <configuration>
+                    <skip>false</skip>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-scm-plugin</artifactId>
+                <version>1.9.5</version>
+                <executions>
+                    <execution>
+                        <id>add-docs-to-git</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>add</goal>
+                        </goals>
+                        <configuration>
+                            <includes>docs/**/*.md</includes>
+                            <pushChanges>false</pushChanges>
+                            <message>Updating documentation</message>
+                        </configuration>
+                    </execution>
+                </executions>
+                <configuration>
+                    <basedir>../</basedir>
+                    <skip>false</skip>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

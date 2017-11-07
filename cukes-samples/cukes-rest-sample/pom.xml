@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>cukes-rest-sample</artifactId>
+    <name>Cukes REST Sample Project</name>
+
+    <parent>
+        <groupId>lv.ctco.cukes</groupId>
+        <artifactId>cukes-samples</artifactId>
+        <version>0.0.18-SNAPSHOT</version>
+    </parent>
+
+    <profiles>
+        <profile>
+            <id>localhost</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>java</goal>
+                                </goals>
+                                <configuration>
+                                    <mainClass>lv.ctco.cukes.rest.SampleApplication</mainClass>
+                                    <arguments>
+                                        <argument>server</argument>
+                                        <argument>cukes-rest-sample/server.yml</argument>
+                                    </arguments>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+    <dependencies>
+        <!-- Cukes Dependencies-->
+        <dependency>
+            <groupId>lv.ctco.cukes</groupId>
+            <artifactId>cukes-rest-loadrunner</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <!-- Logback -->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.1.8</version>
+        </dependency>
+
+        <!-- Dropwizard 0.6.2 (JDK 1.6 support) -->
+        <dependency>
+            <groupId>com.yammer.dropwizard</groupId>
+            <artifactId>dropwizard-core</artifactId>
+            <version>0.6.2</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.google.guava</groupId>
+                    <artifactId>guava</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
+</project>

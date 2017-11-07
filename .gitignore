@@ -1,20 +1,16 @@
-# Idea
 *.iml
-*.ipr
-*.iws
 .idea
-
-# Maven
 **/target/
-
-# Gradle
+**/out/
 .gradle
 **/build/
+derby.log
+work/
+
+.settings/
+.classpath
+.project
 
 # Misc
 .DS_Store
 *.swp
-
-# Migration
-.svn
-
